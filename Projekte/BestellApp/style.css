@@ -1,0 +1,24 @@
+header {
+    display: flex;
+    height: 80px;
+    background-color: #f46705;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+header img {
+    height: 48px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #f46705;
+}

@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+    scroll-behavior: smooth;
+    height: 100vh;
+}
+
+main {
+    height: 100vh;
+}
