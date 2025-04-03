@@ -11,6 +11,30 @@ header img {
     height: 48px;
 }
 
+main {
+    display: flex;
+}
+
+.main-dishes {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+
+.main-box {
+    display: flex;
+    flex-direction: column;
+    margin: 24px;
+    width: 1024px;
+    font-family: Raleway;
+}
+
+.main-box h6 {
+    color: #f46705;
+}
+
 ::-webkit-scrollbar {
     width: 5px;
 }

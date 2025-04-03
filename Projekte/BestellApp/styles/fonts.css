@@ -1,0 +1,14 @@
+@font-face {
+    font-family: Nunito;
+    src: url(../assets/fonts/Nunito/Nunito-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url(../assets/fonts/Raleway/Raleway-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Economica;
+    src: url(../assets/fonts/Economica/Economica-Regular.ttf);
+}
