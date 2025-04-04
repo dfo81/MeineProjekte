@@ -1,3 +1,8 @@
+
+header img {
+    height: 48px;
+}
+
 .main-image {
     width: 100%;
     height: 300px;
@@ -10,4 +15,24 @@
     height: 150px;
     border-radius: 50%;
     box-shadow: 0px 0px 10px 5px rgb(252, 156, 77);
+}
+
+.section-image {
+    width: 1024px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 24px 0;
+}
+
+.plus {
+    height: 24px;
+    border: 1px solid rgb(199, 199, 199);
+    margin-top: -5px;
+    border-radius: 0px 5px 0px 5px;
+    padding: 3px;
+}
+
+.plus:hover {
+    background-color:rgb(252, 156, 77);
 }

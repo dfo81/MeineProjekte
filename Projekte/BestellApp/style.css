@@ -7,31 +7,47 @@ header {
     padding: 0 24px;
 }
 
-header img {
-    height: 48px;
-}
-
-main {
+.content-wrapper {
     display: flex;
 }
 
-.main-dishes {
+.content {
     display: flex;
     flex-direction: column;
-    width: 100%;
     align-items: center;
+    width: calc(100% - 300px);
 }
-
 
 .main-box {
-    display: flex;
-    flex-direction: column;
-    margin: 24px;
     width: 1024px;
-    font-family: Raleway;
+    margin: 24px 0;
 }
 
 .main-box h6 {
+    color: #f46705;
+}
+
+.meals {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 5px rgb(230, 230, 230);
+}
+
+.meals:hover {
+    background-color: #ffc094;
+    cursor: pointer;
+}
+
+.meal-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+b {
     color: #f46705;
 }
 

@@ -21,27 +21,45 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="init()">
     <header>
         <img src="./assets/icons/Logo/Logo.png" alt="">
         <img src="./assets/icons/burger64.png" alt="">
     </header>
+
     <main>
-        <div class="main-dishes">
-            <img class="main-image" src="./assets/img/ai-generated-8714508_1920.jpg" alt="pizza">
-            <img class="logo" src="./assets/img/pizza-6875615_640.png" alt="cook">
-            <div class="main-box">
-                <h2>Cotto al forno</h2>
-                <h6>Bewertung (4.8 von 5.0)</h6>
-                <div class="template" id="content">
-                    <img src="./" alt="">
+        <div class="content-wrapper">
+            <section class="content">
+                <img class="main-image" src="./assets/img/ai-generated-8714508_1920.jpg" alt="pizza">
+                <img class="logo" src="./assets/img/logo.png" alt="cook">
+                <div class="main-box">
+                    <h2>Cotto al forno</h2>
+                    <h6>Bewertung (4.8 von 5.0)</h6>
+                    <div class="template" id="content">
+                        <img class="section-image" src=`${myDishes[0].Vorspeisen[0]}` alt="">
+                        <h4>Vorspeisen</h4>
+                        <div class="meals">
+                            <div class="meal-left">
+                                <h5>Pizza Margherita</h5>
+                                <span>mit Tomatensauce und Mozarellakäse</span>
+                                <b>8,99€</b>
+                            </div>
+                            <div class="meal-right">
+                                <img class="plus" src="./assets/icons/plus.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="basket">
-            <h3>Warenkorb</h3>
+            </section>
+            <section class="basket-wrapper">
+                <h3>Warenkorb</h3>
+            </section>
         </div>
     </main>
+
+    <footer>
+
+    </footer>
 </body>
 
 </html>
