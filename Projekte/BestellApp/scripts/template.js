@@ -1,26 +1,29 @@
-
 function init() {
-    let dishes = document.getElementById('content');
-    dishes.innerHTML = "";
-   
+  getTemplate();
+}
+
+function getTemplate() {
+    let meal = document.getElementById('content');
+    meal.innerHTML = "";
     for (let i = 0; i < myDishes.length; i++) {
-        dishes.innerHTML += template(i);
-    }   
+        meal.innerHTML += title(i);
+      for (let j = 0; j < myDishes[i].dishes.length; j++) {
+         meal.innerHTML += dish(i, j);       
+      }      
+    }
 };
 
-template = i => 
+title = i =>  `<img class="section-image" src="assets/img/${myDishes[i].image}" alt="${myDishes[i].title}" />
+            <h4>${myDishes[i].title}</h4>
+            `;
 
-`<img class="section-image" src="./assets/img/${myDishes[i].image}" alt="${myDishes[i].title}">
-    <h4>${myDishes[i].title}</h4>
-    <div class="meals">
-        <div class="meal-left">
-            <h5>${myDishes[i].dishes[0].name}</h5>
-            <span>${myDishes[i].dishes[0].ingredients}</span>
-            <b>${myDishes[i].dishes[0].price}</b>
-        </div>
-        <div class="meal-right">
-            <img class="plus" src="./assets/icons/plus.svg" alt="">
-        </div>
-    </div>
-    `
-;
+dish = (i, j) => `<div class="meals">
+                <div class="meal-left">
+                  <h5>${myDishes[i].dishes[j].name}</h5>
+                  <span>${myDishes[i].dishes[j].ingredients}</span>
+                  <b>${myDishes[i].dishes[j].price}</b>
+                </div>
+                <div class="meal-right">
+                  <img class="plus" src="./assets/icons/plus.svg" alt="" />
+                </div>
+              </div>`;

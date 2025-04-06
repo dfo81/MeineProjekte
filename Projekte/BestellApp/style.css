@@ -19,7 +19,7 @@ header {
 }
 
 .main-box {
-    width: 1024px;
+    max-width: 1024px;
     margin: 24px 0;
 }
 
@@ -33,10 +33,11 @@ header {
     height: 100px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 5px rgb(230, 230, 230);
+    margin-bottom: 12px;
 }
 
 .meals:hover {
-    background-color: #ffc094;
+    background-color: #f8ede3;
     cursor: pointer;
 }
 
