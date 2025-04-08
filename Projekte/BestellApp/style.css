@@ -1,4 +1,4 @@
-header {
+header, footer{
     display: flex;
     height: 80px;
     background-color: #f46705;
@@ -19,8 +19,8 @@ header {
 }
 
 .main-box {
-    max-width: 1024px;
-    margin: 24px 0;
+    width: 1024px;
+    margin: 24px;
 }
 
 .main-box h6 {
@@ -48,12 +48,12 @@ header {
     padding: 8px;
 }
 
-b {
+.meals b {
     color: #f46705;
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 2px;
 }
 
 ::-webkit-scrollbar-track {
