@@ -1,8 +1,4 @@
-function init() {
-  getTemplate();
-}
-
-
+// template of Menu
 function getTemplate() {
   let meal = document.getElementById('content');
   meal.innerHTML = "";
@@ -22,15 +18,15 @@ title = i => `
 
 
 // dishes only
-dish = (i, j) => `
+dish = (i, j, index) => `
   <div class="meals">
     <div class="meal-left">
       <h5>${myDishes[i].dishes[j].name}</h5>
       <span>${myDishes[i].dishes[j].ingredients}</span>
-      <b>${myDishes[i].dishes[j].price}</b>
+      <b>${myDishes[i].dishes[j].price.toFixed(2)}€</b>
     </div>
     <div class="meal-right">
-      <img onclick="addMeal(${i},${j})" id="addButton" class="plus" src="./assets/icons/plus.svg" alt="add meal" />
+      <img onclick="addMeal(${i},${j},${index})" id="addButton" class="plus" src="./assets/icons/plus.svg" alt="add meal" />
     </div>
   </div>
   `;

@@ -1,78 +1,111 @@
+function init() {
+    getTemplate();
+    getFromLocalStorage();
+    templateBasket();
+};
 
-myBasket = [];
-
-// add Meal to Basket
-function addMeal(i, j) {
-    if (myDishes[i].dishes[j].amount == 0) {
-        myDishes[i].dishes[j].amount++;
-        addMealBasket(i, j);
-    }
-    else {
-        plus(i, j);
-    }
+let myBasket = {
+    name: [],
+    price: [],
+    amount: []
 };
 
 // Template Basket
-function addMealBasket(i, j) {
-    let meal = document.getElementById('content-overlay');
-    meal.innerHTML += getBasketTemplate(i, j);
+function templateBasket(i, j) {
+    let meal = document.getElementById("content-overlay");
+    meal.innerHTML = "";
+    for (let index = 0; index < myBasket.name.length; index++) {
+        meal.innerHTML += getBasketTemplate(i, j, index);
+    }
 };
 
 // return Template
-getBasketTemplate = (i, j) => `
-    <div id="${myDishes[i].dishes[j].name}">
-        <h6>${myDishes[i].dishes[j].name}</h6>
+getBasketTemplate = (i, j, index) => `
+    <div id="${myBasket.name[index]}">
+        <h6>${myBasket.name[index]}</h6>
         <div class="cell">
-        <img onclick="minus(${i}, ${j})" class="icon-small" src="./assets/icons/minus_small.svg" alt="minus">
-            <label id="amount_${myDishes[i].dishes[j].name}">${myDishes[i].dishes[j].amount}x</label>
-            <img onclick="plus(${i}, ${j})" class="icon-small" src="./assets/icons/plus_small.svg" alt="plus">
-            <label id="price_${myDishes[i].dishes[j].name}">${myDishes[i].dishes[j].price.toFixed(2)}€</label>
-            <img onclick="deleteMeal(${i}, ${j})" class="icon-small" src="./assets/icons/trash_orange.svg" alt="trash">
+        <img onclick="minus(${index})" class="icon-small" src="./assets/icons/minus_small.svg" alt="minus">
+            <label id="amount_${myBasket.name[index]}">${myBasket.amount[index]}</label>
+            <img onclick="plus(${index})" class="icon-small" src="./assets/icons/plus_small.svg" alt="plus">
+            <label id="price_${myBasket.price[index]}">${(myBasket.amount[index] * myBasket.price[index]).toFixed(2).replace(".",",")}€</label>
+            <img onclick="deleteMeal(${index})" class="icon-small" src="./assets/icons/trash_orange.svg" alt="trash">
         </div>
     </div>
 `;
 
 
-// delete 
-function deleteMeal(i, j) {
-    let element = document.getElementById(`${myDishes[i].dishes[j].name}`);
-    element.remove();
-    myDishes[i].dishes[j].amount = 0;
+// add Meal to the basket
+function addMeal(i, j) {
+    let dishesIndex = myDishes[i].dishes[j];
+    let basketIndex = myBasket.name.indexOf(dishesIndex.name);
+
+    if (basketIndex === -1) {
+        myBasket.name.push(dishesIndex.name);
+        myBasket.price.push(dishesIndex.price);
+        myBasket.amount.push(1);
+        document.getElementById('basket').classList.add('d-none');
+        document.getElementById('bill').classList.remove("d-none");
+    } else {
+        myBasket.amount[basketIndex]++;
+    }
+    templateBasket();
+    saveToLocalStorage();
 };
 
+// delete meal from basket and reset amount 
+function deleteMeal(index) {
+    myBasket.name.splice(index, 1)
+    myBasket.price.splice(index, 1)
+    myBasket.amount.splice(index, 1)
+    if (myBasket.name == 0) {
+        document.getElementById('bill').classList.add('d-none');
+        document.getElementById('basket').classList.remove('d-none');
+    }
+    templateBasket();
+    saveToLocalStorage();
+};
 
 // minus amount of meals
-function minus(i, j) {
-    if (myDishes[i].dishes[j].amount == 1){
-        deleteMeal(i, j);
+function minus(index) {
+    if (myBasket.amount[index] == 1) {
+        deleteMeal(index);
     }
     else {
-        myDishes[i].dishes[j].amount--;
-        reloadAmount(i,j);
+        myBasket.amount[index]--;
     }
+    templateBasket();
+    saveToLocalStorage();
 };
-
 
 // plus amount of meals
-function plus(i, j) {
-    myDishes[i].dishes[j].amount++;
-        reloadAmount(i,j);
+function plus(index) {
+    myBasket.amount[index]++;
+    templateBasket();
+    saveToLocalStorage();
+    subtotal();
 };
 
-//reload amount
-function reloadAmount(i,j) {
-    let amountLabel = document.getElementById("amount_"+myDishes[i].dishes[j].name);
-    let priceLabel = document.getElementById("price_"+myDishes[i].dishes[j].name);
-    amountLabel.innerHTML = myDishes[i].dishes[j].amount + "x";
-    priceLabel.innerHTML = (myDishes[i].dishes[j].price * myDishes[i].dishes[j].amount).toFixed(2) + "€";
-};
-
-/*
-function subtotal() {
-    let subtotal = document.getElementById('subtotal');
-    for (let index = 0; index < array.length; index++) {
-        const element = array[index];
-        
+// calculate subtotal
+function subtotal(index) {
+    let element = document.getElementById('subtotal');
+    let sum = 0;
+    for (let i = 0; i < myBasket.price.length; i++) {
+        sum += myBasket.price[i] * myBasket.amount[i];
     }
-;}
-*/
+    element.innerHTML = sum.toFixed(2).replace(".",",") + "€";
+};
+
+// save basket at local storage
+function saveToLocalStorage() {
+    localStorage.setItem("myObject", JSON.stringify(myBasket));
+};
+
+// load from local storage in to the basket
+function getFromLocalStorage() {
+    let myArr = JSON.parse(localStorage.getItem("myObject"));
+    if (myArr != null) {
+        myBasket = myArr;
+    }
+};
+
+
