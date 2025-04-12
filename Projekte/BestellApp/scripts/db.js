@@ -187,4 +187,40 @@ let myDishes = [
       },
     ],
   },
+  {
+    title: "Getränke",
+    image: "getraenke.jpg",
+    dishes: [
+      {
+        name: "Coca-Cola",
+        ingredients: "klassisch, 0.33l",
+        price: 2.8,
+        amount: 0,
+      },
+      {
+        name: "Fanta",
+        ingredients: "Orangenlimonade, 0.33l",
+        price: 2.8,
+        amount: 0,
+      },
+      {
+        name: "Sprite",
+        ingredients: "Zitronenlimonade, 0.33l",
+        price: 2.8,
+        amount: 0,
+      },
+      {
+        name: "Mezzo Mix",
+        ingredients: "Cola & Orange, 0.33l",
+        price: 2.8,
+        amount: 0,
+      },
+      {
+        name: "Mineralwasser",
+        ingredients: "still oder sprudelnd, 0.5l",
+        price: 2.5,
+        amount: 0,
+      },
+    ],
+  },
 ];

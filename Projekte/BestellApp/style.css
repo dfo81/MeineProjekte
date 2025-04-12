@@ -59,3 +59,18 @@ header, footer{
 ::-webkit-scrollbar-thumb {
     background: #f46705;
 }
+
+.links {
+    display: flex;
+    margin-top: 24px;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.links a {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    color: gray;
+    width: 140px;
+    text-decoration: none;
+    padding: 10px;
+}
