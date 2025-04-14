@@ -1,0 +1,84 @@
+@media (max-width: 1440px) {
+    .main-image {
+        height: 200px;     
+    }
+    .logo {
+        top: 230px;
+    }
+    .links {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content {
+        width: 100%;
+    }
+    .basket-wrapper {
+        display: none;
+    }
+    .links {
+        font-size: 14px;
+    }
+    .section-image {
+        height: 125px;
+        margin-top: 12px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .basket-button-overlay {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .main-image {
+        height: 120px;
+    }
+    .logo {
+        height: 70px;
+        top: 160px;
+    }
+    .links {
+        display: none;
+    }
+    .section-image {
+        height: 100px;
+    }
+    .meal-left h5 {
+        font-size: 16px;
+    }
+    .meal-left span {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    header, footer {
+        height: 50px;
+    }
+    header img {
+        height: 36px;
+    }
+    .logo {
+        height: 50px;
+        top: 140px;
+    }
+    .meals {
+        height: 110px;
+    }
+}
+
+.basket-active {
+    display: flex;
+    flex-direction: column;
+    width: min(350px);
+    margin: 24px auto;
+    height: 100vh;
+}
+
+.basket-active h3 {
+    align-self: center;
+    font-size: 36px;
+}
