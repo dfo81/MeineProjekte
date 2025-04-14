@@ -98,3 +98,25 @@ header, footer{
     border-radius: 4px;
     font-size: 24px;
 }
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+}
+
+footer a:hover {
+    color: black;
+}
+.impressum {
+    margin: 24px;
+}
+
+.impressum a {
+    text-decoration: none;
+    color: rgb(40, 64, 173);
+}
+
+.impressum a:hover {
+    color: chocolate;
+}
