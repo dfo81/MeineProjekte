@@ -1,14 +1,4 @@
-// template of Menu
-function getTemplate() {
-  let meal = document.getElementById('content');
-  meal.innerHTML = "";
-  for (let i = 0; i < myDishes.length; i++) {
-    meal.innerHTML += title(i);
-    for (let j = 0; j < myDishes[i].dishes.length; j++) {
-      meal.innerHTML += dish(i, j);
-    }
-  }
-};
+
 
 // Parent of dishes with title
 title = i => `
@@ -30,3 +20,18 @@ dish = (i, j, index) => `
     </div>
   </div>
   `;
+
+
+  // return Template
+getBasketTemplate = (i, j, index) => `
+<div id="${myBasket.name[index]}">
+    <h6>${myBasket.name[index]}</h6>
+    <div class="cell">
+    <img onclick="minus(${index})" class="icon-small" src="./assets/icons/minus_small.svg" alt="minus">
+        <label id="amount_${myBasket.name[index]}">${myBasket.amount[index]}</label>
+        <img onclick="plus(${index})" class="icon-small" src="./assets/icons/plus_small.svg" alt="plus">
+        <label id="price_${myBasket.price[index]}">${(myBasket.amount[index] * myBasket.price[index]).toFixed(2).replace(".",",")} €</label>
+        <img onclick="deleteMeal(${index})" class="icon-small" src="./assets/icons/trash_orange.svg" alt="trash">
+    </div>
+</div>
+`;

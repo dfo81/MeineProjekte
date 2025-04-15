@@ -73,7 +73,7 @@
 .basket-active {
     display: flex;
     flex-direction: column;
-    width: min(350px);
+    width: min(300px);
     margin: 24px auto;
     height: 100vh;
 }

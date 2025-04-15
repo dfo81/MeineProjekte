@@ -7,6 +7,19 @@ function init() {
 };
 
 
+// template of Menu
+function getTemplate() {
+    let meal = document.getElementById('content');
+    meal.innerHTML = "";
+    for (let i = 0; i < myDishes.length; i++) {
+      meal.innerHTML += title(i);
+      for (let j = 0; j < myDishes[i].dishes.length; j++) {
+        meal.innerHTML += dish(i, j);
+      }
+    }
+  };
+  
+
 // add Meal to the basket
 function addMeal(i, j) {
     let dishesIndex = myDishes[i].dishes[j];
